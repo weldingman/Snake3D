@@ -5,7 +5,7 @@
 // - Wireframe panel: removed header text (“Wireframe cube ...”) and bottom HUD text
 // - Right HUD panel: smaller + moved a bit DOWN so it never overlaps the wireframe panel
 
-const N = 12;
+const N = 20;
 
 // ---- Speed tuning ----
 let tickMs = 360;
@@ -98,7 +98,7 @@ function gameOver() {
 function draw() {
   background(24);
 
-  const pad = 18;
+  const pad = 30;
   const rightW = 330;
   const topMiniH = 260;
   const gap = 14;
@@ -118,7 +118,7 @@ function draw() {
   };
 
   // HUD: smaller + moved down a bit
-  const hudY = miniArea.y + miniArea.h + 26;
+  const hudY = miniArea.y + miniArea.h + 60;
   const hudArea = {
     x: miniArea.x,
     y: hudY,
@@ -251,6 +251,7 @@ function drawSlice2D(area) {
   fill(10, 130);
   rect(area.x, area.y, area.w, area.h, 14);
 
+  // fill(18);
   fill(18);
   rect(gx - 6, gy - 6, gridW + 12, gridH + 12, 10);
 
@@ -442,7 +443,7 @@ function drawDashedLine(x1, y1, x2, y2, dashLen, gapLen) {
 function drawWireframe(area) {
   noStroke();
   fill(10, 130);
-  rect(area.x, area.y, area.w, area.h, 14);
+  rect(area.x, area.y, area.w, area.h + 50, 14);
 
   const cx = area.x + area.w * 0.52;
   const cy = area.y + area.h * 0.60;
@@ -642,7 +643,9 @@ function drawHUDRight(area) {
   fill(235, 180);
   textSize(12);
   textAlign(LEFT, BOTTOM);
-  text(`Keys: arrows steer, W turn, Q/E view, SPACE pause, ENTER start/restart`, area.x + 14, area.y + area.h - 10);
+  text(`Keys: arrows steer, W turn, Q/E view`, area.x + 14, area.y + area.h - 10);
+  text(`SPACE pause, ENTER start/restart`, area.x + 14, area.y + area.h - 24);
+  
   textAlign(LEFT, BASELINE);
 }
 
@@ -652,7 +655,7 @@ function onoff(v){ return v ? "ON" : "OFF"; }
 
 function drawStartOverlay() {
   drawOverlayPanel(
-    "3D Slice Snake — 12×12×12",
+    "3D Slice Snake — 20×20×20",
     [
       "Arrows = steer on current plane",
       "W = rotate movement plane (go 3D)",
