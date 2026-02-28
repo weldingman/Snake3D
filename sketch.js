@@ -11,7 +11,7 @@ const N = 20;
 let tickMs = 360;
 const tickMin = 80;
 const tickMax = 1200;
-let speedStep = 5;
+let speedStep = 1;
 
 const VIEW = [
   { id: "+Z (XY)", axis: "Z", sign: +1 },
